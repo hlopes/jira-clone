@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 
 export default function Home() {
   return (
@@ -10,7 +10,9 @@ export default function Home() {
       <Button variant="muted">Muted</Button>
       <Button variant="outline">Outline</Button>
       <Button variant="tertiary">Tertiary</Button>
-      <Button variant="primary" disabled>Disabled</Button>
+      <Button variant="primary" disabled>
+        Disabled
+      </Button>
     </div>
-  );
+  )
 }

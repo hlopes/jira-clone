@@ -1,14 +1,13 @@
-import {Hono} from 'hono'
-import {handle} from "hono/vercel";
+import { Hono } from 'hono'
+import { handle } from 'hono/vercel'
 
-const app = new Hono().basePath("/api");
+const app = new Hono()
+  .basePath('/api')
+  .get('/hello', (c) => c.json({ hello: 'world' }))
+  .get('/projects/:projectId', (c) => {
+    const { projectId } = c.req.param()
 
-app.get("/hello", (c) => c.json({hello: "world"}));
+    return c.json({ projectId: projectId })
+  })
 
-app.get('/projects/:projectId', c => {
-    const {projectId} = c.req.param();
-
-    return c.json({projectId: projectId});
-});
-
-export const GET = handle(app);
+export const GET = handle(app)
